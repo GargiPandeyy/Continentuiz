@@ -224,6 +224,7 @@ h2 {
 
 .question-container {
     margin-bottom: 30px;
+    animation: fadeIn 0.5s ease;
 }
 
 .question-container h3 {
