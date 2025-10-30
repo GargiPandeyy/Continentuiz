@@ -223,16 +223,30 @@ h2 {
     background: rgba(76, 175, 80, 0.3);
     border-color: #4caf50;
     transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.3);
 }
 
 .answer-btn.correct {
     background: rgba(76, 175, 80, 0.5);
     border-color: #4caf50;
+    animation: pulse 0.5s ease;
 }
 
 .answer-btn.wrong {
     background: rgba(244, 67, 54, 0.5);
     border-color: #f44336;
+    animation: shake 0.5s ease;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
 }
 
 .controls {
