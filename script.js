@@ -303,7 +303,12 @@ function checkAnswer(selected) {
     if (selected === q.correct) {
         buttons[selected].classList.add('correct');
         score += 10;
-        document.getElementById('score').textContent = score;
+        let scoreEl = document.getElementById('score');
+        scoreEl.textContent = score;
+        scoreEl.style.animation = 'pulse 0.5s ease';
+        setTimeout(() => {
+            scoreEl.style.animation = '';
+        }, 500);
 
         setTimeout(() => {
             currentQuestion++;
@@ -325,7 +330,12 @@ function useHint() {
     score = Math.max(0, score - 5);
 
     document.getElementById('hintsLeft').textContent = hintsLeft;
-    document.getElementById('score').textContent = score;
+    let scoreEl = document.getElementById('score');
+    scoreEl.textContent = score;
+    scoreEl.style.animation = 'shake 0.5s ease';
+    setTimeout(() => {
+        scoreEl.style.animation = '';
+    }, 500);
 
     let allQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
     let q = allQuestions[currentQuestion];
@@ -346,7 +356,12 @@ function skipQuestion() {
     score = Math.max(0, score - 5);
 
     document.getElementById('skipsLeft').textContent = skipsLeft;
-    document.getElementById('score').textContent = score;
+    let scoreEl = document.getElementById('score');
+    scoreEl.textContent = score;
+    scoreEl.style.animation = 'shake 0.5s ease';
+    setTimeout(() => {
+        scoreEl.style.animation = '';
+    }, 500);
 
     clearInterval(timerInterval);
     currentQuestion++;
