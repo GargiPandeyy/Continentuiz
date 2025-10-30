@@ -27,18 +27,18 @@
             <div class="difficulty-container">
                 <div class="difficulty-card" onclick="selectDifficulty('easy')">
                     <h3>EASY</h3>
-                    <p>More hints & time</p>
-                    <p>Simpler questions</p>
+                    <p>15 questions</p>
+                    <p>3 hints, 1 skip</p>
                 </div>
                 <div class="difficulty-card" onclick="selectDifficulty('medium')">
                     <h3>MEDIUM</h3>
-                    <p>Balanced challenge</p>
-                    <p>Moderate questions</p>
+                    <p>30 questions</p>
+                    <p>2 hints, 1 skip</p>
                 </div>
                 <div class="difficulty-card" onclick="selectDifficulty('hard')">
                     <h3>HARD</h3>
-                    <p>Minimal help</p>
-                    <p>Complex questions</p>
+                    <p>30 questions</p>
+                    <p>No hints or skips!</p>
                 </div>
             </div>
         </div>
@@ -60,7 +60,7 @@
         <div id="quizScreen" class="screen">
             <div class="quiz-header">
                 <div class="score">Score: <span id="score">0</span></div>
-                <div class="question-counter">Question <span id="current">1</span>/30</div>
+                <div class="question-counter">Question <span id="current">1</span>/<span id="total">30</span></div>
                 <div id="timer" class="timer"></div>
             </div>
 
@@ -85,7 +85,7 @@
             <p class="game-over-msg">The mysterious forces have trapped you forever...</p>
             <div class="final-stats">
                 <p>Final Score: <span id="finalScore">0</span></p>
-                <p>Questions Answered: <span id="questionsAnswered">0</span>/30</p>
+                <p>Questions Answered: <span id="questionsAnswered">0</span>/<span id="totalGameOver">30</span></p>
             </div>
             <button class="btn-restart" onclick="restartGame()">TRY AGAIN</button>
         </div>

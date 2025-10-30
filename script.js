@@ -6,6 +6,8 @@ let hintsLeft = 0;
 let skipsLeft = 0;
 let timerInterval;
 let timeLeft = 20;
+let totalQuestions = 30;
+let currentQuestions = [];
 
 let questions = {
     easy: [
@@ -209,17 +211,36 @@ function showDifficulty() {
 function selectDifficulty(level) {
     difficulty = level;
     if (level === 'easy') {
-        hintsLeft = 5;
-        skipsLeft = 5;
-    } else if (level === 'medium') {
         hintsLeft = 3;
-        skipsLeft = 3;
-    } else {
+        skipsLeft = 1;
+        totalQuestions = 15;
+        currentQuestions = [...questions.easy.slice(0, 10), ...questions.medium.slice(0, 5)];
+    } else if (level === 'medium') {
         hintsLeft = 2;
-        skipsLeft = 2;
+        skipsLeft = 1;
+        totalQuestions = 30;
+        currentQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
+    } else {
+        hintsLeft = 0;
+        skipsLeft = 0;
+        totalQuestions = 30;
+        currentQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
     }
     document.getElementById('hintsLeft').textContent = hintsLeft;
     document.getElementById('skipsLeft').textContent = skipsLeft;
+
+    if (hintsLeft === 0) {
+        document.getElementById('hintBtn').style.display = 'none';
+    } else {
+        document.getElementById('hintBtn').style.display = 'inline-block';
+    }
+
+    if (skipsLeft === 0) {
+        document.getElementById('skipBtn').style.display = 'none';
+    } else {
+        document.getElementById('skipBtn').style.display = 'inline-block';
+    }
+
     showScreen('modeScreen');
 }
 
@@ -230,19 +251,19 @@ function selectMode(selectedMode) {
 }
 
 function loadQuestion() {
-    if (currentQuestion >= 30) {
+    if (currentQuestion >= totalQuestions) {
         showVictory();
         return;
     }
 
-    let allQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
-    let q = allQuestions[currentQuestion];
+    let q = currentQuestions[currentQuestion];
 
     document.getElementById('question').textContent = q.question;
     document.getElementById('current').textContent = currentQuestion + 1;
+    document.getElementById('total').textContent = totalQuestions;
     document.getElementById('score').textContent = score;
 
-    let progress = ((currentQuestion) / 30) * 100;
+    let progress = ((currentQuestion) / totalQuestions) * 100;
     document.getElementById('progress').style.width = progress + '%';
 
     let answersDiv = document.getElementById('answers');
@@ -294,8 +315,7 @@ function startTimer() {
 function checkAnswer(selected) {
     clearInterval(timerInterval);
 
-    let allQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
-    let q = allQuestions[currentQuestion];
+    let q = currentQuestions[currentQuestion];
 
     let buttons = document.querySelectorAll('.answer-btn');
     buttons.forEach(btn => btn.onclick = null);
@@ -337,8 +357,7 @@ function useHint() {
         scoreEl.style.animation = '';
     }, 500);
 
-    let allQuestions = [...questions.easy, ...questions.medium, ...questions.hard];
-    let q = allQuestions[currentQuestion];
+    let q = currentQuestions[currentQuestion];
 
     let hintDiv = document.getElementById('hintText');
     hintDiv.textContent = '💡 ' + q.hint;
@@ -376,6 +395,7 @@ function gameOver() {
     clearInterval(timerInterval);
     document.getElementById('finalScore').textContent = score;
     document.getElementById('questionsAnswered').textContent = currentQuestion;
+    document.getElementById('totalGameOver').textContent = totalQuestions;
     showScreen('gameOverScreen');
 }
 
@@ -395,10 +415,14 @@ function restartGame() {
     hintsLeft = 0;
     skipsLeft = 0;
     timeLeft = 20;
+    totalQuestions = 30;
+    currentQuestions = [];
     clearInterval(timerInterval);
 
     document.getElementById('hintBtn').disabled = false;
     document.getElementById('skipBtn').disabled = false;
+    document.getElementById('hintBtn').style.display = 'inline-block';
+    document.getElementById('skipBtn').style.display = 'inline-block';
 
     showScreen('storyScreen');
 }
