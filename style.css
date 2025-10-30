@@ -138,6 +138,56 @@ body::before {
     animation-delay: 8s;
 }
 
+.leaf6 {
+    left: 15%;
+    animation-delay: 1s;
+}
+
+.leaf7 {
+    left: 25%;
+    animation-delay: 3s;
+}
+
+.leaf8 {
+    left: 40%;
+    animation-delay: 5s;
+}
+
+.leaf9 {
+    left: 55%;
+    animation-delay: 7s;
+}
+
+.leaf10 {
+    left: 65%;
+    animation-delay: 9s;
+}
+
+.leaf11 {
+    left: 80%;
+    animation-delay: 1.5s;
+}
+
+.leaf12 {
+    left: 35%;
+    animation-delay: 4.5s;
+}
+
+.leaf13 {
+    left: 60%;
+    animation-delay: 6.5s;
+}
+
+.leaf14 {
+    left: 20%;
+    animation-delay: 8.5s;
+}
+
+.leaf15 {
+    left: 75%;
+    animation-delay: 2.5s;
+}
+
 @keyframes leafFall {
     0% {
         top: -10%;
