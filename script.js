@@ -268,13 +268,21 @@ function loadQuestion() {
 
 function startTimer() {
     timeLeft = 20;
-    document.getElementById('timer').textContent = `Time: ${timeLeft}s`;
-    document.getElementById('timer').style.display = 'block';
+    let timerEl = document.getElementById('timer');
+    timerEl.textContent = `Time: ${timeLeft}s`;
+    timerEl.style.display = 'block';
+    timerEl.style.color = '#ffc107';
+    timerEl.style.animation = '';
 
     clearInterval(timerInterval);
     timerInterval = setInterval(() => {
         timeLeft--;
-        document.getElementById('timer').textContent = `Time: ${timeLeft}s`;
+        timerEl.textContent = `Time: ${timeLeft}s`;
+
+        if (timeLeft <= 5 && timeLeft > 0) {
+            timerEl.style.color = '#f44336';
+            timerEl.style.animation = 'shake 0.5s ease infinite';
+        }
 
         if (timeLeft <= 0) {
             clearInterval(timerInterval);
