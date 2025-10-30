@@ -330,6 +330,11 @@ h2 {
 @media (max-width: 600px) {
     h1 {
         font-size: 1.8em;
+        letter-spacing: 1px;
+    }
+
+    h2 {
+        font-size: 1.5em;
     }
 
     .screen {
@@ -338,5 +343,26 @@ h2 {
 
     .difficulty-card, .mode-card {
         min-width: 100%;
+    }
+
+    .quiz-header {
+        font-size: 0.9em;
+    }
+
+    .score, .question-counter, .timer {
+        padding: 8px 15px;
+        font-size: 0.95em;
+    }
+
+    .question-container h3 {
+        font-size: 1.2em;
+    }
+
+    .controls {
+        flex-direction: column;
+    }
+
+    .controls button {
+        width: 100%;
     }
 }
