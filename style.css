@@ -614,4 +614,16 @@ h2 {
     .controls button {
         width: 100%;
     }
+
+    .tree {
+        opacity: 0.08;
+    }
+
+    .leaf {
+        display: none;
+    }
+
+    .vine {
+        opacity: 0.3;
+    }
 }
