@@ -2,44 +2,18 @@
 
 an interactive quiz game about continents with a mysterious jungle story
 
-## story
 
 you play as alex a young explorer trapped in a mysterious jungle. to escape you must answer questions about the seven continents correctly. one wrong answer and youre lost forever
 
-## features
 
-- story driven gameplay
-- 3 difficulty levels (easy medium hard)
-- timed and untimed modes
-- 30 questions about continents
-- hint and skip system
-- modern jungle themed design
-- responsive for mobile and desktop
+I build this game because i want to learn more about the continents so i thought it would be better to make a game based on it.
 
-## how to play
+The game is build in html, css and js. 
 
-1. read the story and click begin your escape
-2. select your difficulty level
-3. choose timed or untimed mode
-4. answer questions correctly to progress
-5. use hints and skips wisely (they cost points)
-6. complete all 30 questions to escape the jungle
+In this project i struggled with managing multiple game states and screen transitions, implementing countdown timers with setInterval and proper cleanup, 
 
-## gameplay mechanics
+dynamically creating and manipulating DOM elements, designing complex CSS keyframe animations for the jungle theme, handling event listeners to prevent bugs, and 
 
-- correct answer = +10 points
-- using hint = -5 points
-- using skip = -5 points
-- timed mode = 20 seconds per question
-- one wrong answer = game over
-- complete all questions = victory
+building game logic that combines question arrays by difficulty while tracking scores with point deductions for hints and skips.
 
-## tech stack
-
-- html
-- css
-- javascript
-
-## play now
-
-just open index.html in your browser and start playing
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
